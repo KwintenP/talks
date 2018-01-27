@@ -1,0 +1,166 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/white.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <div class="box">
+                <h3>Web components with StencilJS</h3>
+                Add image
+                Add name and image placeholder
+            </div>
+        </section>
+        <section data-background-image="./images/question_marks.jpg">
+            <aside class="notes">
+                Who is on twitter? Has anyone every just avoided your twitter feed for a while just out of fear that
+                something has changed yet again?
+                I have.
+            </aside>
+        </section>
+        <section class="full-screen">
+            <div class="fade-on-new-fragment"
+                 style="height: 75%; position: relative; width: 100%; display: flex; justify-items: center; justify-content: center; align-items: center; align-content: center; flex: 1;">
+                <img class="fragment" style="position: absolute; transform: rotate(0.005turn) "
+                     src="./images/new_framework_comic.jpg"/>
+                <img class="fragment" style="position: absolute; transform: rotate(-0.005turn) "
+                     src="./images/another_framework.jpg"/>
+                <img class="fragment" style="position: absolute; transform: rotate(0.008turn) "
+                     src="./images/no_new_frameworks.jpg"/>
+                <img class="fragment" style="position: absolute; transform: rotate(0.000turn) "
+                     src="./images/upgrade.jpg"/>
+            </div>
+            <aside class="notes">
+                New frameworks coming out.
+                No easy way to upgrade.
+            </aside>
+        </section>
+        <section class="full-screen">
+            <div class="fade-on-new-fragment"
+                 style="height: 75%; position: relative; width: 100%; display: flex; justify-items: center; justify-content: center; align-items: center; align-content: center; flex: 1;">
+                <img class="fragment" style="position: absolute; transform: rotate(0.005turn) "
+                     src="images/component_libs_angular.png"/>
+                <img class="fragment" style="position: absolute; transform: rotate(-0.005turn) "
+                     src="images/component_libs_react.png"/>
+                <img class="fragment" style="position: absolute; transform: rotate(0.008turn) "
+                     src="images/component_libs_vuejs.png"/>
+            </div>
+            <aside class="notes">
+                We keep doing the same thing in the newly created frameworks.
+                Over and over again.
+            </aside>
+        </section>
+        <section data-background-image="https://media.giphy.com/media/aMF29ird5nz32/giphy.gif">
+        </section>
+        <section>
+            Introduce myself
+        </section>
+        <section>
+            <section>
+                <div class="box">
+                    <h4>Web components</h4>
+                    <img src="images/logo_512x512.png" style="box-shadow: none"/>
+                </div>
+            </section>
+            <section>
+                <div class="box">
+                    <div class="images-align">
+                        <div style="display: flex; flex-direction: column; align-items: center; font-size: 2rem">
+                            <img src="images/templates_512x512.png"/>
+                            <span>Html templates</span>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; font-size: 2rem">
+                            <img src="images/custom-elements_512x512.png"/>
+                            <span>Custom elements</span>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; font-size: 2rem">
+                            <img src="images/shadow-dom_512x512.png"/>
+                            <span>Shadow DOM</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="box">
+                    <h3>Html templates</h3>
+                    Declaring a template
+                    <pre>
+                        <code data-trim>
+                            <template id="mytemplate">
+                              <img src="" alt="great image">
+                              <div class="comment"></div>
+                            </template>
+                        </code>
+                    </pre>
+                </div>
+                <aside class="notes">
+                    Template -> fragment of markup that doesn't render on startup and is inert. (doesn't load images)
+                </aside>
+            </section>
+            <section>
+                <div class="box">
+                    <h3>Html templates</h3>
+                    Using the template
+                    <pre>
+                        <code data-trim>
+                            var t = document.querySelector('#mytemplate');
+
+                            // Populate the src at runtime.
+                            t.content.querySelector('img').src = 'logo.png';
+
+                            var clone = document.importNode(t.content, true);
+                            document.body.appendChild(clone);
+                        </code>
+                    </pre>
+                </div>
+                <aside class="notes">
+                    Template -> fragment of markup that doesn't render on startup and is inert. (doesn't load images)
+                </aside>
+            </section>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        history: true,
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

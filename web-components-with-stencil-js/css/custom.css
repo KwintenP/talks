@@ -1,0 +1,41 @@
+.reveal section .box {
+    padding: 1em;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px rgba(10, 16, 20, 0.24), 0 0 2px rgba(10, 16, 20, 0.12);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.reveal section.full-screen {
+    height: 100vh;
+}
+
+.reveal section img {
+    border: none;
+}
+
+.reveal section .images-align {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.reveal section .images-align img {
+    height: 25vh;
+    width: 25vh;
+    box-shadow: none;
+}
+
+.reveal .slides section .fade-on-new-fragment img.fragment.visible {
+    opacity: .5;
+}
+
+.reveal .slides section .fade-on-new-fragment img.fragment.visible.current-fragment {
+    opacity: 1;
+}
+
+.reveal pre {
+    box-shadow: none;
+}
