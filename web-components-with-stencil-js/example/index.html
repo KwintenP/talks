@@ -39,10 +39,7 @@
             }
 
             _updateRendering() {
-                console.log('mqlsjkfd');
-                console.log(this.shadowRoot);
                 if(!this.shadowRoot) {
-                    console.log('entered');
                     this.attachShadow({mode: 'open'});
                 }
                 const data = 'hello ' + (this._who ? this._who : 'world');
