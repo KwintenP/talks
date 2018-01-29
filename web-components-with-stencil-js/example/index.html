@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Webcomponents example</title>
+    <script type="text/javascript">
+        class HelloWorld extends HTMLElement {
+            constructor() {
+                super();
+                this._who = null;
+                console.log('component created');
+            }
+
+            static get observedAttributes() {
+                return ["who"];
+            }
+
+            attributeChangedCallback(name, oldValue, newValue) {
+                console.log('the name has changed');
+                this._who = newValue;
+                this._updateRendering();
+            }
+
+            connectedCallback() {
+                console.log('connectedCallBack called');
+                this._updateRendering();
+            }
+
+            disconnectedCallback() {
+                console.log('disconnectedCallback removed');
+            }
+
+            get who() {
+                return this._who;
+            }
+
+            set who(v) {
+                this.setAttribute("who", v);
+            }
+
+            _updateRendering() {
+                console.log('mqlsjkfd');
+                console.log(this.shadowRoot);
+                if(!this.shadowRoot) {
+                    console.log('entered');
+                    this.attachShadow({mode: 'open'});
+                }
+                const data = 'hello ' + (this._who ? this._who : 'world');
+                this.shadowRoot.innerHTML = '<p>' + data + '</p>';
+            }
+        }
+
+        customElements.define("hello-world", HelloWorld);
+    </script>
+</head>
+<body>
+<hello-world who="kwinten"></hello-world>
+</body>
+</html>
