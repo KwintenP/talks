@@ -39,3 +39,7 @@
 .reveal pre {
     box-shadow: none;
 }
+
+.reveal .slides section h3 {
+    border-bottom: 1px solid #DBDBDB;
+}
