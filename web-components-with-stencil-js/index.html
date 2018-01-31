@@ -82,6 +82,16 @@
                     <img src="images/logo_512x512.png" style="box-shadow: none"/>
                 </div>
             </section>
+            <!--<section>-->
+                <!--<div class="box">-->
+                    <!--<h3>Super brief history</h3>-->
+                    <!--<ul>-->
+                        <!--<li>Webcomponents v0 by Chrome in 2013</li>-->
+                        <!--<li>Supported by Chrome and Opera in 2014</li>-->
+                        <!--<li>2015 - 2016 Discussions and support in Chrome and Opera</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</section>-->
             <section>
                 <div class="box">
                     <div class="images-align">
@@ -107,7 +117,8 @@
                     <pre>
                         <code data-trim>
                             <template id="mytemplate">
-                              <img src="" alt="great image">
+                              <img src="my-awesome-image.png"
+                                   alt="great image">
                               <div class="comment"></div>
                             </template>
                         </code>
@@ -147,13 +158,70 @@
             </section>
             <section>
                 <div class="box">
+                    Custom elements are <strong>natively supported</strong> javascript components
+                </div>
+            </section>
+            <section>
+                <div class="box">
                     <h3>Custom elements</h3>
+                        <pre><code style="font-size: 85%;" data-noescape>
+class HelloWorld extends HTMLElement {
+    <span class="fragment">static get observedAttributes() {
+        return ["who"];
+    }</span>
+
+    <span class="fragment">attributeChangedCallback(name, oldValue, newValue) {
+        console.log('the name has changed');
+        this._who = newValue;
+        this._updateRendering();
+    }</span>
+}
+                        </code></pre>
+                </div>
+            </section>
+            <section>
+                <div class="box">
+                    <h3>Custom elements</h3>
+                        <pre><code style="font-size: 85%;" data-noescape>
+class HelloWorld extends HTMLElement {
+    <span class="fragment">get who() {
+        return this._who;
+    }</span>
+
+    <span class="fragment">set who(v) {
+        this.setAttribute("who", v);
+    }
+    </span>
+}
+                        </code></pre>
+                </div>
+            </section>
+            <section>
+                <div class="box">
+                    <h3>Custom elements</h3>
+                        <pre><code style="font-size: 85%;" data-noescape>
+class HelloWorld extends HTMLElement {
+    <span class="fragment">get who() {
+         _updateRendering() {
+                if(!this.shadowRoot) {
+                    this.attachShadow({mode: 'open'});
+                }
+                const data = 'hello ' + (this._who ? this._who : 'world');
+                this.shadowRoot.innerHTML = '<p>' + data + '</p>';
+            }
+    </span>
+}
+                        </code></pre>
+                </div>
+            </section>
+            <section>
+                <div class="box">
+                  <h3>Lifecycle of a webcomponent</h3>
                     <ul>
-                        <li>Test</li>
-                        <li>Test</li>
-                        <li>Test</li>
-                        <li>Test</li>
-                        <li>Test</li>
+                        <span class="fragment"><li><strong>Constructor</strong> --> Creation</li></span>
+                        <span class="fragment"><li><strong>connectedCallback</strong> --> Added to DOM</li></span>
+                        <span class="fragment"><li><strong>disconnectedCallback</strong> --> Removed from DOM</li></span>
+                        <span class="fragment"><li><strong>attributeChangedCallback</strong> --> Attribute changed</li></span>
                     </ul>
                 </div>
             </section>
@@ -164,12 +232,30 @@
                     <span class="fragment">
                         Then why don't we use them more?
                     </span>
-                    <span class="fragment" style="margin-top:50px;">
+                    <span class="fragment">
+                        <img src="images/confused.gif" />
+                    </span>
+                </div>
+            </section>
+            <section>
+                <div class="box">
+                    <span class="fragment">
                         <ul>
                             <li>Manual DOM manipulation</li>
                             <li class="fragment">Rendering speed</li>
                             <li class="fragment">No framework features</li>
                         </ul>
+                    </span>
+                    <span class="fragment">
+                        <img src="images/old_computer.gif" height="40%" width="40%"/>
+                    </span>
+                </div>
+            </section>
+            <section>
+                <div class="box">
+                    <h3>Wait! Can't I use jQuery for that?</h3>
+                    <span class="fragment">
+                        <img src="images/no_you_cant.gif" height="80%"/>
                     </span>
                 </div>
             </section>
@@ -184,8 +270,8 @@
                 </div>
             </section>
             <section>
-                <h2>StencilJS is <span class="fragment fade-out shrink">yet another framework</span><span
-                        class="fragment fade-in">a compiler</span></h2>
+                <h2>StencilJS: <span class="fragment fade-out shrink">A framework for web components</span><span
+                        class="fragment fade-in">A compiler for web component</span></h2>
             </section>
             <section>
                 <div class="box">
@@ -229,6 +315,33 @@
                           }
                         }
                     </code></pre>
+                </div>
+            </section>
+            <section style="height: 95vh">
+                <div class="box">
+                    <h3>Stencil API</h3>
+                    <table style="font-size: 80%;">
+                        <tr>
+                            <td>@Component</td>
+                            <td>Define information about the component</td>
+                        </tr>
+                        <tr>
+                            <td>@Prop</td>
+                            <td>Property on the custom element</td>
+                        </tr>
+                        <tr>
+                            <td>@Event</td>
+                            <td>Custom event on the component</td>
+                        </tr>
+                        <tr>
+                            <td>@Listen</td>
+                            <td>Listen to events from children</td>
+                        </tr>
+                        <tr>
+                            <td>@Element</td>
+                            <td>Get reference to the DOM element</td>
+                        </tr>
+                    </table>
                 </div>
             </section>
         </section>
