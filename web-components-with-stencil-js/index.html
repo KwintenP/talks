@@ -308,29 +308,6 @@ class HelloWorld extends HTMLElement {
                     </code></pre>
                 </div>
             </section>
-            <section>
-                <div class="box">
-                    <h3>How does stencil facilitate the creation</h3>
-                    <ul style="display: flex; flex-direction: column; justify-content: center">
-                        <li>Uses Virtual DOM for better performance</li>
-                        <li class="fragment">Async rendering system like React Fiber</li>
-                        <li class="fragment">Uses JSX for markup</li>
-                        <li class="fragment">Built on typescript for static type checking</li>
-                        <li class="fragment">Familiar APIs from other frameworks</li>
-                    </ul>
-                </div>
-                <aside class="notes">
-                    Stencil is een compiler,
-                    Stencil helpt ons WC maken + gebaseerd op andere FW,
-                    Tonen wat een stencil WC is,
-                    Waarom zouden we nu Stencil moeten gebruiken, (size bundle and code)
-                    He, we hebben webcomponents, waarom daar geen app in bouwen
-                    Demo applicatie
-                    Relation betweeen WC en Frameworks
-                    Andere features zoals pre rendering, lazy loading
-                    Hoe gebruiken in andere frameworks
-                </aside>
-            </section>
             <section style="height: 95vh">
                 <div class="box">
                     <h3>Stencil API</h3>
@@ -344,6 +321,10 @@ class HelloWorld extends HTMLElement {
                             <td>Property on the custom element</td>
                         </tr>
                         <tr>
+                            <td>@Watch</td>
+                            <td>Called when the prop has changed</td>
+                        </tr>
+                        <tr>
                             <td>@Event</td>
                             <td>Custom event on the component</td>
                         </tr>
@@ -355,9 +336,53 @@ class HelloWorld extends HTMLElement {
                             <td>@Element</td>
                             <td>Get reference to the DOM element</td>
                         </tr>
+                        <tr>
+                            <td>@State</td>
+                            <td>Manage internal state that triggers rendering</td>
+                        </tr>
+                        <tr>
+                            <td>@Method</td>
+                            <td>Publicly available method</td>
+                        </tr>
                     </table>
                 </div>
             </section>
+            <section>
+                <div class="box">
+                    <h3>How does stencil facilitate the creation</h3>
+                    <ul style="display: flex; flex-direction: column; justify-content: center">
+                        <li class="fragment">Uses Virtual DOM for better performance</li>
+                        <li class="fragment">Automatic updating on changes</li>
+                        <li class="fragment">Async rendering system like React Fiber</li>
+                        <li class="fragment">Uses JSX for markup</li>
+                        <li class="fragment">Built on typescript for static type checking</li>
+                        <li class="fragment">Familiar APIs from other frameworks</li>
+                    </ul>
+                </div>
+                <aside class="notes">
+                    Stencil is een compiler,
+                    Stencil helpt ons WC maken + gebaseerd op andere FW,
+                    Tonen wat een stencil WC is,
+                    Waarom zouden we nu Stencil moeten gebruiken,
+                    Based on techs we know, typescript, jsx, decorators,...
+                    (size bundle and code, virtual dom, async rendering like react fiber, interoptability)
+                    He, we hebben webcomponents, waarom daar geen app in bouwen
+                    Demo applicatie
+                    Relation betweeen WC en Frameworks
+                    Andere features zoals pre rendering, lazy loading
+                    Hoe gebruiken in andere frameworks
+                </aside>
+            </section>
+            <section>
+                <div class="box">
+                    <h3>Why stencil?</h3>
+                    <ul style="display: flex; flex-direction: column; justify-content: center">
+                        <li class="fragment">Bundle size (core only 5,4kb!)</li>
+                        <li class="fragment">Use only native browser APIs</li>
+                        <li class="fragment">Interoperability with other frameworks</li>
+                        <li class="fragment">No need to change when a new framework arrives</li>
+                    </ul>
+                </div>
         </section>
     </div>
 </div>
