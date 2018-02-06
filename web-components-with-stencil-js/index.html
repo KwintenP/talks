@@ -83,14 +83,14 @@
                 </div>
             </section>
             <!--<section>-->
-                <!--<div class="box">-->
-                    <!--<h3>Super brief history</h3>-->
-                    <!--<ul>-->
-                        <!--<li>Webcomponents v0 by Chrome in 2013</li>-->
-                        <!--<li>Supported by Chrome and Opera in 2014</li>-->
-                        <!--<li>2015 - 2016 Discussions and support in Chrome and Opera</li>-->
-                    <!--</ul>-->
-                <!--</div>-->
+            <!--<div class="box">-->
+            <!--<h3>Super brief history</h3>-->
+            <!--<ul>-->
+            <!--<li>Webcomponents v0 by Chrome in 2013</li>-->
+            <!--<li>Supported by Chrome and Opera in 2014</li>-->
+            <!--<li>2015 - 2016 Discussions and support in Chrome and Opera</li>-->
+            <!--</ul>-->
+            <!--</div>-->
             <!--</section>-->
             <section>
                 <div class="box">
@@ -128,8 +128,6 @@
                         <pre>
                             <code data-trim>
                                 var t = document.querySelector('#mytemplate');
-                                // Populate the src at runtime.
-                                t.content.querySelector('img').src = 'logo.png';
 
                                 var clone = document.importNode(t.content, true);
                                 document.body.appendChild(clone);
@@ -163,8 +161,14 @@
             </section>
             <section>
                 <div class="box">
+                    <h3>Custom element example</h3>
+                    <img src="images/web-components-example.gif"/>
+                </div>
+            </section>
+            <section>
+                <div class="box">
                     <h3>Custom elements</h3>
-                        <pre><code style="font-size: 85%;" data-noescape>
+                    <pre><code style="font-size: 85%;" data-noescape>
 class HelloWorld extends HTMLElement {
     <span class="fragment">static get observedAttributes() {
         return ["who"];
@@ -182,7 +186,7 @@ class HelloWorld extends HTMLElement {
             <section>
                 <div class="box">
                     <h3>Custom elements</h3>
-                        <pre><code style="font-size: 85%;" data-noescape>
+                    <pre><code style="font-size: 85%;" data-noescape>
 class HelloWorld extends HTMLElement {
     <span class="fragment">get who() {
         return this._who;
@@ -199,10 +203,10 @@ class HelloWorld extends HTMLElement {
             <section>
                 <div class="box">
                     <h3>Custom elements</h3>
-                        <pre><code style="font-size: 85%;" data-noescape>
+                    <pre><code style="font-size: 85%;" data-noescape>
 class HelloWorld extends HTMLElement {
-    <span class="fragment">get who() {
-         _updateRendering() {
+    <span class="fragment">
+        _updateRendering() {
                 if(!this.shadowRoot) {
                     this.attachShadow({mode: 'open'});
                 }
@@ -216,13 +220,19 @@ class HelloWorld extends HTMLElement {
             </section>
             <section>
                 <div class="box">
-                  <h3>Lifecycle of a webcomponent</h3>
+                    <h3>Lifecycle of a webcomponent</h3>
                     <ul>
                         <span class="fragment"><li><strong>Constructor</strong> --> Creation</li></span>
                         <span class="fragment"><li><strong>connectedCallback</strong> --> Added to DOM</li></span>
                         <span class="fragment"><li><strong>disconnectedCallback</strong> --> Removed from DOM</li></span>
                         <span class="fragment"><li><strong>attributeChangedCallback</strong> --> Attribute changed</li></span>
                     </ul>
+                </div>
+            </section>
+            <section>
+                <div class="box">
+                    <h3>Can I use this?</h3>
+                    <img src="images/can_i_use_wc.png" alt="" class="src">
                 </div>
             </section>
             <section>
@@ -233,12 +243,12 @@ class HelloWorld extends HTMLElement {
                         Then why don't we use them more?
                     </span>
                     <span class="fragment">
-                        <img src="images/confused.gif" />
+                        <img src="images/confused.gif"/>
                     </span>
                 </div>
             </section>
             <section>
-                <div class="box">
+                <div class="box" style="height: 80vh; display:flex; flex-direction: column;">
                     <span class="fragment">
                         <ul>
                             <li>Manual DOM manipulation</li>
@@ -258,6 +268,9 @@ class HelloWorld extends HTMLElement {
                         <img src="images/no_you_cant.gif" height="80%"/>
                     </span>
                 </div>
+            </section>
+            <section>
+                <img src="images/ben_lesh_tweet.png"/>
             </section>
         </section>
 
@@ -383,7 +396,7 @@ class HelloWorld extends HTMLElement {
                         <li class="fragment">No need to change when a new framework arrives</li>
                     </ul>
                 </div>
-        </section>
+            </section>
     </div>
 </div>
 
