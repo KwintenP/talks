@@ -362,6 +362,27 @@ class HelloWorld extends HTMLElement {
             </section>
             <section>
                 <div class="box">
+                    <h3>Component lifecycle</h3>
+                    <pre><code>
+@Component({
+  tag: 'my-component'
+})
+export class MyComponent {
+  componentWillLoad() {}
+
+  componentDidLoad() {}
+
+  componentWillUpdate() {}
+
+  componentDidUpdate() {}
+
+  componentDidUnload() {}
+}
+                    </code></pre>
+                </div>
+            </section>
+            <section>
+                <div class="box">
                     <h3>How does stencil facilitate the creation</h3>
                     <ul style="display: flex; flex-direction: column; justify-content: center">
                         <li class="fragment">Uses Virtual DOM for better performance</li>
@@ -392,10 +413,17 @@ class HelloWorld extends HTMLElement {
                     <ul style="display: flex; flex-direction: column; justify-content: center">
                         <li class="fragment">Bundle size (core only 5,4kb!)</li>
                         <li class="fragment">Use only native browser APIs</li>
+                        <li class="fragment">Auto loads polyfills if needed</li>
                         <li class="fragment">Interoperability with other frameworks</li>
                         <li class="fragment">No need to change when a new framework arrives</li>
                     </ul>
                 </div>
+            </section>
+            <section>
+                <img src="images/stencil-overview.jpg" alt="" style="height: 100%;">
+            </section>
+            <section>
+                <img src="images/size_comparison.jpg" alt="" style="width: 100%;">
             </section>
     </div>
 </div>
