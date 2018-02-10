@@ -43,3 +43,12 @@
 .reveal .slides section h3 {
     border-bottom: 1px solid #DBDBDB;
 }
+
+#background-color {
+    background-color: rgb(74, 134, 232);
+}
+
+.fragment.fragment-remove.visible:not(current-fragment) {
+    background-color: black;
+    display:none;
+}
