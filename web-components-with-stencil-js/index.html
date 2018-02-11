@@ -97,6 +97,14 @@
                     <img src="images/banner-ng-be-2017.jpg" style="max-width: 100%; max-height: 100%" alt="">
                 </div>
             </section>
+            <section>
+                <div style="width: 100%; height: 100%">
+                    <div style="position: absolute; width: 100%; background-color: black; opacity: .75; top: 40px; padding: 15px 0 5px; text-align: center; color: white">
+                        Blog
+                    </div>
+                    <img src="images/blog_strongbrew.png" style="max-width: 100%; max-height: 100%" alt="">
+                </div>
+            </section>
         </section>
         <section>
             <section>
@@ -132,8 +140,8 @@
                     </div>
                 </div>
             </section>
-            <section>
-                <div class="box">
+            <section style="margin-top: -20px; height: 75vh;">
+                <div class="box" style="margin-bottom: 0.5em; height: 100%">
                     <h3>Html templates</h3>
                     Declaring a template
                     <pre>
@@ -176,68 +184,59 @@
                     <img src="./images/shadow_dom.png"/>
                 </div>
             </section>
-            <section>
-                <div class="box">
-                    Custom elements are <strong>natively supported</strong> javascript components
-                </div>
+            <section data-background-color="#4a86e8">
+                    <h4>Custom elements are <strong>natively supported</strong> javascript components</h4>
             </section>
-            <section>
-                <div class="box">
+            <section style="height: 75vh">
+                <div class="box" style="height: 100%">
                     <h3>Custom element example</h3>
-                    <img src="images/web-components-example.gif"/>
+                    <div style="height: 60vh; width: 50vw; margin-left: auto; margin-right: auto; display: block;">
+                        <img style="margin-left: auto; margin-right: auto; display: block;" src="images/web-components-example.gif"/>
+                    </div>
                 </div>
             </section>
             <section>
                 <div class="box">
-                    <h3>Custom elements</h3>
-                    <pre><code style="font-size: 85%;" data-noescape>
-class HelloWorld extends HTMLElement {
+                    <h3>Custom elements - attributes</h3>
+                    <pre><code style="font-size: 85%;" data-noescape>class HelloWorld extends HTMLElement {
     <span class="fragment">static get observedAttributes() {
         return ["who"];
     }</span>
 
     <span class="fragment">attributeChangedCallback(name, oldValue, newValue) {
-        console.log('the name has changed');
+        console.log("the name has changed");
         this._who = newValue;
         this._updateRendering();
-    }</span>
-}
-                        </code></pre>
+    }
+</span>}</code></pre>
                 </div>
             </section>
             <section>
                 <div class="box">
-                    <h3>Custom elements</h3>
-                    <pre><code style="font-size: 85%;" data-noescape>
-class HelloWorld extends HTMLElement {
+                    <h3>Custom elements - Properties</h3>
+                    <pre><code style="font-size: 85%;" data-noescape>class HelloWorld extends HTMLElement {
     <span class="fragment">get who() {
         return this._who;
     }</span>
-
     <span class="fragment">set who(v) {
         this.setAttribute("who", v);
     }
-    </span>
-}
-                        </code></pre>
+</span>}</code></pre>
                 </div>
             </section>
             <section>
                 <div class="box">
-                    <h3>Custom elements</h3>
-                    <pre><code style="font-size: 85%;" data-noescape>
-class HelloWorld extends HTMLElement {
-    <span class="fragment">
-        _updateRendering() {
-                if(!this.shadowRoot) {
-                    this.attachShadow({mode: 'open'});
-                }
-                const data = 'hello ' + (this._who ? this._who : 'world');
-                this.shadowRoot.innerHTML = '<p>' + data + '</p>';
-            }
-    </span>
-}
-                        </code></pre>
+                    <h3>Custom elements - Update DOM</h3>
+                    <pre><code style="font-size: 85%;" data-noescape>class HelloWorld extends HTMLElement {
+    <span class="fragment">_updateRendering() {
+        if(!this.shadowRoot) {
+            this.attachShadow({mode: "open"});
+        }
+        const data = "hello " +
+            (this._who ? this._who : "world");
+        this.shadowRoot.innerHTML = data;
+    }
+</span>}</code></pre>
                 </div>
             </section>
             <section>
@@ -257,9 +256,9 @@ class HelloWorld extends HTMLElement {
                     <img src="images/can_i_use_wc.png" alt="" class="src">
                 </div>
             </section>
-            <section>
-                <div class="box" style="height: 80vh; display:flex; flex-direction: column;">
-                    Custom elements are awesome!
+            <section style="height: 70vh;">
+                <div class="box" style="height: 100%; display:flex; flex-direction: column;">
+                    <p>Custom elements are awesome!</p>
                     <br/>
                     <span class="fragment">
                         Then why don't we use them more?
@@ -269,8 +268,9 @@ class HelloWorld extends HTMLElement {
                     </span>
                 </div>
             </section>
-            <section>
-                <div class="box" style="height: 80vh; display:flex; flex-direction: column;">
+            <section style="height: 70vh;">
+                <div class="box" style="height: 100%; display:flex; flex-direction: column;">
+                    <h3>What are we missing?</h3>
                     <span class="fragment">
                         <ul>
                             <li>Manual DOM manipulation</li>
@@ -278,21 +278,26 @@ class HelloWorld extends HTMLElement {
                             <li class="fragment">No framework features</li>
                         </ul>
                     </span>
-                    <span class="fragment">
+                    <span class="fragment" style="margin-top: 50px;">
                         <img src="images/old_computer.gif" height="40%" width="40%"/>
                     </span>
                 </div>
             </section>
             <section>
-                <div class="box">
-                    <h3>Wait! Can't I use jQuery for that?</h3>
-                    <span class="fragment">
-                        <img src="images/no_you_cant.gif" height="80%"/>
-                    </span>
+                <div class="box" style="height: 70vh">
+                    <h4 style="border-bottom: 1px solid #DBDBDB;">Wait! Can't I use jQuery for that?</h4>
+                    <!--<span class="fragment">-->
+
+                    <!--</span>-->
+                    <div>
+                      <span style="padding-right:3px; padding-top: 3px; display:block; height: 75vh;">
+                        <img src="images/no_you_cant.gif" />
+                      </span>
+                    </div>
                 </div>
             </section>
             <section>
-                <img src="images/ben_lesh_tweet.png"/>
+                <img src="images/ben_lesh_tweet.png" style="height: 70vh;"/>
             </section>
         </section>
 
@@ -464,9 +469,6 @@ export class MyComponent {
                 </div>
             </section>
             <section>
-                <img src="images/stencil-overview.jpg" alt="" style="height: 100%;">
-            </section>
-            <section>
                 <img src="images/size_comparison.jpg" alt="" style="width: 100%;">
             </section>
         </section>
@@ -485,9 +487,27 @@ export class MyComponent {
             </section>
             <section>
                 <div class="box">
+                    <h3>How stencil supports PWA's</h3>
+                    <ul>
+                        <li class="fragment">Automatic service worker generation (workbox)</li>
+                        <li class="fragment">Automatic manifest generation</li>
+                        <li class="fragment">Support for Lazy loading</li>
+                        <li class="fragment">Prerendering</li>
+                        <li class="fragment">Easy SSR</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <div class="box">
                     <h3>Lighthouse</h3>
                     <img src="images/lighthouse_stencil.png" alt="">
                 </div>
+            </section>
+            <section>
+                <img src="images/stencil-overview.jpg" alt="" style="height: 100%;">
+            </section>
+            <section>
+                demo insert here
             </section>
         </section>
         <section>
@@ -527,16 +547,16 @@ class HelloMessage extends React.Component {
                     </code></pre>
                 </div>
             </section>
-        </section>
-        <section>
-            <div class="box">
-                <h3></h3>
-                <pre><code>
+            <section>
+                <div class="box">
+                    <h3>VueJS</h3>
+                    <pre><code>
 Vue.config.ignoredElements = [
   'x-ticking-paragraph'
 ]
                 </code></pre>
-            </div>
+                </div>
+            </section>
         </section>
         <section>
             <section data-background-color="#4a86e8">
@@ -568,6 +588,9 @@ Vue.config.ignoredElements = [
             </section>
             <section data-transition="none">
                 <img src="images/shop_stencil.006.jpeg" alt="">
+            </section>
+            <section data-transition="none">
+                <img src="images/shop_stencil.008.jpeg" alt="">
             </section>
         </section>
         <section>
