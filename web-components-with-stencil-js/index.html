@@ -81,13 +81,11 @@
             </section>
         </section>
         <section>
-            <section style="height: 80vh; width: 50vw;">
-                <div style="width: 100%; height: 100%">
+            <section style="height: 80vh;">
                     <div style="position: absolute; width: 100%; background-color: black; opacity: .75; top: 40px; padding: 15px 0 5px; text-align: center; color: white">
                         Freelance Frontend Architect
                     </div>
                     <img src="images/me2.JPG" style="max-width: 100%; max-height: 100%" alt="">
-                </div>
             </section>
             <section>
                 <div style="width: 100%; height: 100%">
@@ -241,6 +239,19 @@
             </section>
             <section>
                 <div class="box">
+                    <h4 style="border-bottom: 1px solid #DBDBDB;">Defining custom elements</h4>
+                    <span class="fragment">
+                        <pre><code>customElements.define("hello-world", HelloWorld);</code></pre>
+                    </span>
+                    <h4 style="border-bottom: 1px solid #DBDBDB;" class="fragment">Using custom elements</h3>
+                    <span class="fragment">
+                        <pre><code><hello-world who="JSBE"></hello-world></code></pre>
+                        <pre><code>document.body.appendChild(helloWorld);</code></pre>
+                    </span>
+                </div>
+            </section>
+            <section>
+                <div class="box">
                     <h3>Lifecycle of a webcomponent</h3>
                     <ul>
                         <span class="fragment"><li><strong>Constructor</strong> --> Creation</li></span>
@@ -289,11 +300,9 @@
                     <!--<span class="fragment">-->
 
                     <!--</span>-->
-                    <div>
                       <span style="padding-right:3px; padding-top: 3px; display:block; height: 75vh;">
                         <img src="images/no_you_cant.gif" />
                       </span>
-                    </div>
                 </div>
             </section>
             <section>
@@ -342,13 +351,13 @@
                             @Prop() name: string;
 
                             render() {
-                            return <p>Hello, my name is {this.name}</p>;
-                          }
+                                return <p>Hello, my name is {this.name}</p>;
+                            }
                         }
                     </code></pre>
                 </div>
             </section>
-            <section>
+            <section style="height: 75vh;">
                 <div class="box">
                     <h3>How does it work</h3>
                     <span style="display:flex; justify-content: center; flex-direction: column; align-items: center">
@@ -359,7 +368,7 @@
                              width="10%">
                         <img src="images/arrow_down.jpg" class="fragment" alt="" style="box-shadow: none" height="10%"
                              width="10%">
-                        <img src="images/webcomponents_logo.png" class="fragment" alt="" style="box-shadow: none"
+                        <img src="images/webcomponents_logo%20copy.png" class="fragment" alt="" style="box-shadow: none"
                              height="10%" width="10%"/>
                     </span>
                 </div>
@@ -406,8 +415,7 @@
             <section>
                 <div class="box">
                     <h3>Component lifecycle</h3>
-                    <pre><code>
-@Component({
+                    <pre><code>@Component({
   tag: 'my-component'
 })
 export class MyComponent {
@@ -420,9 +428,23 @@ export class MyComponent {
   componentDidUpdate() {}
 
   componentDidUnload() {}
-}
-                    </code></pre>
+}</code></pre>
                 </div>
+            </section>
+            <section>
+                <pre><code>@Component({
+  tag: 'demo-shopping-list-overview',
+  styleUrl: 'shopping-list-overview.component.scss'
+})
+export class ShoppingListOverview {
+  @Event() removeItem: EventEmitter;
+
+  @Listen('removeItem')
+  removeItem(event: CustomEvent) {
+    event.stopPropagation();
+    this.removeItem.emit({id: event.id});
+  }
+}</code></pre>
             </section>
             <section>
                 <div class="box">
@@ -451,9 +473,12 @@ export class MyComponent {
                 </aside>
             </section>
             <section>
+                <img src="images/ben_lesh_tweet.png" style="height: 70vh;"/>
+            </section>
+            <section style="height: 75vh;">
                 <div class="box">
-                    <h3>Getting started with StencilJS</h3>
-                    <img src="images/stencil_component_starter.png" alt="">
+                    <h3>Components with stencil</h3>
+                    <img style="height: 69%" src="images/stencil_component_starter.png" alt="">
                 </div>
             </section>
             <section>
@@ -479,10 +504,10 @@ export class MyComponent {
             <section data-background-color="#4a86e8">
                 <h1>PWA</h1>
             </section>
-            <section>
+            <section style="75vh;">
                 <div class="box background">
-                    <h3>Getting started with StencilJS</h3>
-                    <img src="images/stencil_component_starter.png" alt="">
+                    <h3>Building apps with stencil</h3>
+                    <img height="69%" src="images/stencil_app_starter.png" alt="">
                 </div>
             </section>
             <section>
@@ -503,22 +528,23 @@ export class MyComponent {
                     <img src="images/lighthouse_stencil.png" alt="">
                 </div>
             </section>
-            <section>
+            <section style="height: 75vh;">
                 <img src="images/stencil-overview.jpg" alt="" style="height: 100%;">
             </section>
-            <section>
-                demo insert here
+            <section style="height: 75vh;">
+                <img src="images/webshop_stencil.png" alt="" style="height: 100%;">
+            </section>
+            <section style="height: 75vh;">
+                <img src="images/show_me_the_code.png" alt="" style="height: 100%;">
             </section>
         </section>
         <section>
-            <section>
-                Adapter image
+            <section data-background-image="images/integration.jpg">
             </section>
             <section>
                 <div class="box">
                     <h3>Integration in Angular</h3>
-                    <pre><code>
-@NgModule({
+                    <pre><code>@NgModule({
   declarations: [
     AppComponent
   ],
@@ -538,23 +564,19 @@ export class AppModule { }
             <section>
                 <div class="box">
                     <h3>Integration in React</h3>
-                    <pre><code>
-class HelloMessage extends React.Component {
+                    <pre><code>class HelloMessage extends React.Component {
   render() {
     return <div>Hello <x-search>{this.props.name}</x-search>!</div>;
   }
-}
-                    </code></pre>
+}</code></pre>
                 </div>
             </section>
             <section>
                 <div class="box">
                     <h3>VueJS</h3>
-                    <pre><code>
-Vue.config.ignoredElements = [
+                    <pre><code>Vue.config.ignoredElements = [
   'x-ticking-paragraph'
-]
-                </code></pre>
+]</code></pre>
                 </div>
             </section>
         </section>
@@ -619,6 +641,7 @@ Vue.config.ignoredElements = [
                     </ul>
                 </div>
             </section>
+            <section data-background-image="images/thanks_for_listening.jpg"></section>
         </section>
     </div>
 </div>
