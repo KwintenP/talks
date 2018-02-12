@@ -246,7 +246,7 @@
                     <h4 style="border-bottom: 1px solid #DBDBDB;" class="fragment">Using custom elements</h3>
                     <span class="fragment">
                         <pre><code><hello-world who="JSBE"></hello-world></code></pre>
-                        <pre><code>document.body.appendChild(helloWorld);</code></pre>
+                        <pre><code>document.body.appendChild(new HelloWorld());</code></pre>
                     </span>
                 </div>
             </section>
@@ -432,6 +432,7 @@ export class MyComponent {
                 </div>
             </section>
             <section>
+                <div class="box"><h3>Custom events</h3>
                 <pre><code>@Component({
   tag: 'demo-shopping-list-overview',
   styleUrl: 'shopping-list-overview.component.scss'
@@ -444,7 +445,7 @@ export class ShoppingListOverview {
     event.stopPropagation();
     this.removeItem.emit({id: event.id});
   }
-}</code></pre>
+}</code></pre></div>
             </section>
             <section>
                 <div class="box">
@@ -575,7 +576,7 @@ export class AppModule { }
                 <div class="box">
                     <h3>VueJS</h3>
                     <pre><code>Vue.config.ignoredElements = [
-  'x-ticking-paragraph'
+  'hello-world'
 ]</code></pre>
                 </div>
             </section>
