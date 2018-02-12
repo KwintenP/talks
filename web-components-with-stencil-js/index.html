@@ -82,10 +82,10 @@
         </section>
         <section>
             <section style="height: 80vh;">
-                    <div style="position: absolute; width: 100%; background-color: black; opacity: .75; top: 40px; padding: 15px 0 5px; text-align: center; color: white">
-                        Freelance Frontend Architect
-                    </div>
-                    <img src="images/me2.JPG" style="max-width: 100%; max-height: 100%" alt="">
+                <div style="position: absolute; width: 100%; background-color: black; opacity: .75; top: 40px; padding: 15px 0 5px; text-align: center; color: white">
+                    Freelance Frontend Architect
+                </div>
+                <img src="images/me2.JPG" style="max-width: 100%; max-height: 100%" alt="">
             </section>
             <section>
                 <div style="width: 100%; height: 100%">
@@ -183,13 +183,14 @@
                 </div>
             </section>
             <section data-background-color="#4a86e8">
-                    <h4>Custom elements are <strong>natively supported</strong> javascript components</h4>
+                <h4>Custom elements are <strong>natively supported</strong> javascript components</h4>
             </section>
             <section style="height: 75vh">
                 <div class="box" style="height: 100%">
                     <h3>Custom element example</h3>
                     <div style="height: 60vh; width: 50vw; margin-left: auto; margin-right: auto; display: block;">
-                        <img style="margin-left: auto; margin-right: auto; display: block;" src="images/web-components-example.gif"/>
+                        <img style="margin-left: auto; margin-right: auto; display: block;"
+                             src="images/web-components-example.gif"/>
                     </div>
                 </div>
             </section>
@@ -244,7 +245,7 @@
                         <pre><code>customElements.define("hello-world", HelloWorld);</code></pre>
                     </span>
                     <h4 style="border-bottom: 1px solid #DBDBDB;" class="fragment">Using custom elements</h3>
-                    <span class="fragment">
+                        <span class="fragment">
                         <pre><code><hello-world who="JSBE"></hello-world></code></pre>
                         <pre><code>document.body.appendChild(new HelloWorld());</code></pre>
                     </span>
@@ -300,8 +301,8 @@
                     <!--<span class="fragment">-->
 
                     <!--</span>-->
-                      <span style="padding-right:3px; padding-top: 3px; display:block; height: 75vh;">
-                        <img src="images/no_you_cant.gif" />
+                    <span style="padding-right:3px; padding-top: 3px; display:block; height: 75vh;">
+                        <img src="images/no_you_cant.gif"/>
                       </span>
                 </div>
             </section>
@@ -319,7 +320,8 @@
             <section data-background-color="#4a86e8">
                 <h2>StencilJS <br/>
                     <span class="fragment fragment-remove fade-out shrink" style="text-align: center;">A framework for web components</span>
-                    <span class="fragment fade-in" style="text-align: center; display: inherit">A <span style="text-decoration: underline">compiler</span> for web components</span>
+                    <span class="fragment fade-in" style="text-align: center; display: inherit">A <span
+                            style="text-decoration: underline">compiler</span> for web components</span>
                 </h2>
             </section>
             <section>
@@ -433,7 +435,7 @@ export class MyComponent {
             </section>
             <section>
                 <div class="box"><h3>Custom events</h3>
-                <pre><code>@Component({
+                    <pre><code>@Component({
   tag: 'demo-shopping-list-overview',
   styleUrl: 'shopping-list-overview.component.scss'
 })
@@ -445,7 +447,8 @@ export class ShoppingListOverview {
     event.stopPropagation();
     this.removeItem.emit({id: event.id});
   }
-}</code></pre></div>
+}</code></pre>
+                </div>
             </section>
             <section>
                 <div class="box">
@@ -490,6 +493,18 @@ export class ShoppingListOverview {
                         <li class="fragment">Use only native browser APIs</li>
                         <li class="fragment">Auto loads polyfills if needed</li>
                         <li class="fragment">Interoperability with other frameworks</li>
+                        <li class="fragment">No need to change when a new framework arrives</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <div class="box">
+                    <h3>Why not use stencil?</h3>
+                    <ul style="display: flex; flex-direction: column; justify-content: center">
+                        <li class="fragment">Still in early phases</li>
+                        <li class="fragment">No support for source maps atm</li>
+                        <li class="fragment">Little IDE support</li>
+                        <li class="fragment">Not all the features other frameworks provide</li>
                         <li class="fragment">No need to change when a new framework arrives</li>
                     </ul>
                 </div>
